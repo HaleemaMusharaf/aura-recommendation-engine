@@ -220,7 +220,7 @@ def load_datasets():
         df_cat = None
         
     if os.path.exists('enrolled_course.csv'):
-        df_user = pd.read_csv('enrolled_course.csv', encoding='latin-1')
+        df_user = pd.read_csv('enrolled_course.csv', encoding='latin-1', on_bad_lines='skip', engine='python')
         df_user['clean_title'] = df_user['History_course_name'].astype(str).str.strip().str.lower()
     else:
         df_user = None
